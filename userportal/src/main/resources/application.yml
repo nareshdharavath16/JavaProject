@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+logging:
+  level:
+    org.springframework.security: TRACE
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/kamaisso
+    username: root
+    password: 123456789
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+      idle-timeout: 10000
+      pool-name: springHikariCP
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      auto-commit: false
+      initialization-fail-timeout: 1
+      leak-detection-threshold: 2000
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
